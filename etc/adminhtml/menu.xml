@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="IdealCode_Banner::banner" title="Banners" module="IdealCode_Banner" sortOrder="60"
+             action="adminhtml/banner" parent="Magento_Backend::content_elements" resource="IdealCode_Banner::banner"/>
+    </menu>
+</config>

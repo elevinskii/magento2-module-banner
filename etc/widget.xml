@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="banner_list" class="IdealCode\Banner\Block\Widget\BannerList">
+        <label>Banner list</label>
+        <description>Create new banner list</description>
+    </widget>
+</widgets>
