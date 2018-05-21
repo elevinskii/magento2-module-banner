@@ -4,5 +4,21 @@
     <widget id="banner_list" class="IdealCode\Banner\Block\Widget\BannerList">
         <label>Banner list</label>
         <description>Create new banner list</description>
+        <parameters>
+            <parameter name="template" xsi:type="select" required="true" visible="true">
+                <label>Template</label>
+                <options>
+                    <option name="full_width" value="widget/full_width.phtml" selected="true">
+                        <label>Full width</label>
+                    </option>
+                    <option name="one_column" value="widget/1column.phtml">
+                        <label>One column</label>
+                    </option>
+                    <option name="two_columns" value="widget/2columns.phtml">
+                        <label>Two columns</label>
+                    </option>
+                </options>
+            </parameter>
+        </parameters>
     </widget>
 </widgets>

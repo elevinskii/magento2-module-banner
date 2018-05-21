@@ -1,0 +1,25 @@
+<?php
+/**
+ * @var \IdealCode\Banner\Block\Widget\BannerList $block
+ */
+?>
+<div>
+    <?php foreach ($block->getBanners() as $item):?>
+        <div class="item">
+            <?php if (strlen($item['link']) > 0 ):?>
+                <a href="<?=$item['link']?>">
+            <?php endif; ?>
+                <?php if (strlen($item['img']) > 0 ):?>
+                    <img src="<?=$item['img']?>">
+                <?php endif; ?>
+                <?php if (strlen($item['content']) > 0 ):?>
+                    <div>
+                        <?=$item['content']?>
+                    </div>
+                <?php endif; ?>
+            <?php if (strlen($item['link']) > 0 ):?>
+                </a>
+            <?php endif; ?>
+        </div>
+    <?php endforeach; ?>
+</div>
