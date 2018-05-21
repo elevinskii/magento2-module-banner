@@ -1,17 +1,18 @@
 <?php
 namespace IdealCode\Banner\Setup;
 
-use Magento\Framework\Setup\InstallSchemaInterface;
-use Magento\Framework\Setup\ModuleContextInterface;
-use Magento\Framework\Setup\SchemaSetupInterface;
+use Magento\Framework\DB\Ddl\Table;
 
-class InstallSchema implements InstallSchemaInterface
+class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
 {
     /**
      * {@inheritdoc}
      * @SuppressWarnings(PHPMD.ExcessiveMethodLength)
      */
-    public function install(SchemaSetupInterface $setup, ModuleContextInterface $context)
+    public function install(
+        \Magento\Framework\Setup\SchemaSetupInterface $setup,
+        \Magento\Framework\Setup\ModuleContextInterface $context
+    )
     {
         $installer = $setup;
 
@@ -24,27 +25,32 @@ class InstallSchema implements InstallSchemaInterface
             $installer->getTable('ic_banner_items')
         )->addColumn(
             'id',
-            \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+            Table::TYPE_INTEGER,
             null,
             ['identity' => true, 'unsigned' => true, 'nullable' => false, 'primary' => true]
         )->addColumn(
+            'active',
+            Table::TYPE_SMALLINT,
+            null,
+            ['nullable' => false, 'default' => '1']
+        )->addColumn(
             'sort',
-            \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+            Table::TYPE_INTEGER,
             null,
             ['unsigned' => true]
         )->addColumn(
             'content',
-            \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+            Table::TYPE_TEXT,
             null,
             []
         )->addColumn(
             'img',
-            \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+            Table::TYPE_TEXT,
             255,
             ['nullable' => false]
         )->addColumn(
             'link',
-            \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+            Table::TYPE_TEXT,
             255,
             []
         );

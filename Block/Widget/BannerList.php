@@ -33,6 +33,8 @@ class BannerList extends \Magento\Framework\View\Element\Template implements \Ma
          */
         $banner = $this->_collectionFactory->create();
 
+        $banner->addFieldToFilter('active', 1)->setOrder('sort', $banner::SORT_ORDER_ASC);
+
         return $banner->getData();
     }
 }
