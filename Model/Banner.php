@@ -5,6 +5,6 @@ class Banner extends \Magento\Framework\Model\AbstractModel
 {
     protected function _construct()
     {
-        $this->_init('IdealCode\Banner\Model\ResourceModel\Banner');
+        $this->_init(\IdealCode\Banner\Model\ResourceModel\Banner::class);
     }
 }

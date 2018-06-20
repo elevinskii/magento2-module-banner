@@ -6,8 +6,8 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
     public function _construct()
     {
         $this->_init(
-            'IdealCode\Banner\Model\Banner',
-            'IdealCode\Banner\Model\ResourceModel\Banner'
+            \IdealCode\Banner\Model\Banner::class,
+            \IdealCode\Banner\Model\ResourceModel\Banner::class
         );
     }
 }
