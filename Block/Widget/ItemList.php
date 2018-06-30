@@ -26,7 +26,7 @@ class ItemList extends \Magento\Framework\View\Element\Template implements \Mage
 
     /**
      * Get banner list
-     * @return array
+     * @return \IdealCode\Banner\Model\ResourceModel\Item\Collection
      */
     public function getItems()
     {
@@ -37,8 +37,9 @@ class ItemList extends \Magento\Framework\View\Element\Template implements \Mage
 
         $item
             ->addFieldToFilter(Active::COLUMN, Active::STATUS_ENABLED)
-            ->setOrder('sort', $item::SORT_ORDER_ASC);
+            ->setOrder('sort', $item::SORT_ORDER_ASC)
+            ->load();
 
-        return $item->getData();
+        return $item;
     }
 }
