@@ -2,7 +2,9 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
-        <add id="IdealCode_Banner::banner" title="Banners" module="IdealCode_Banner" sortOrder="60"
-             action="adminhtml/banner" parent="Magento_Backend::content_elements" resource="IdealCode_Banner::banner"/>
+        <add id="IdealCode_Banner::section" title="Banners" module="IdealCode_Banner" sortOrder="40"
+             parent="Magento_Backend::content" resource="IdealCode_Banner::banner"/>
+        <add id="IdealCode_Banner::banner" title="Items" module="IdealCode_Banner" sortOrder="0"
+             action="banner/item" parent="IdealCode_Banner::section" resource="IdealCode_Banner::banner"/>
     </menu>
 </config>
