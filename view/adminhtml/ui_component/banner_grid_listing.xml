@@ -53,6 +53,13 @@
                 <label>Banner ID</label>
             </settings>
         </column>
+        <column name="active" component="Magento_Ui/js/grid/columns/select">
+            <settings>
+                <options class="IdealCode\Banner\Model\Banner\Active" />
+                <dataType>select</dataType>
+                <label>Active</label>
+            </settings>
+        </column>
         <column name="link">
             <settings>
                 <label>Link</label>
