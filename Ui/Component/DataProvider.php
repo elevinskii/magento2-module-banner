@@ -1,26 +1,26 @@
 <?php
-namespace IdealCode\Banner\Ui\Component\Listing;
+namespace IdealCode\Banner\Ui\Component;
 
 class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
 {
     /**
-     * @param string $name
-     * @param string $primaryFieldName
-     * @param string $requestFieldName
      * @param \IdealCode\Banner\Model\ResourceModel\Banner\CollectionFactory $collectionFactory
+     * @param string $name
      * @param array $meta
      * @param array $data
      */
     public function __construct(
-        $name,
-        $primaryFieldName,
-        $requestFieldName,
         \IdealCode\Banner\Model\ResourceModel\Banner\CollectionFactory $collectionFactory,
+        $name,
         array $meta = [],
         array $data = []
     )
     {
-        parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data);
-        $this->collection = $collectionFactory->create();
+        /** @var \IdealCode\Banner\Model\ResourceModel\Banner\Collection $collection */
+        $collection = $collectionFactory->create();
+        $idFieldName = $collection->getResource()->getIdFieldName();
+
+        parent::__construct($name, $idFieldName, $idFieldName, $meta, $data);
+        $this->collection = $collection;
     }
 }

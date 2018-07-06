@@ -1,6 +1,8 @@
 <?php
 namespace IdealCode\Banner\Block\Widget;
 
+use \IdealCode\Banner\Model\Banner\Active;
+
 class BannerList extends \Magento\Framework\View\Element\Template implements \Magento\Widget\Block\BlockInterface
 {
     /**
@@ -33,7 +35,9 @@ class BannerList extends \Magento\Framework\View\Element\Template implements \Ma
          */
         $banner = $this->_collectionFactory->create();
 
-        $banner->addFieldToFilter('active', 1)->setOrder('sort', $banner::SORT_ORDER_ASC);
+        $banner
+            ->addFieldToFilter(Active::COLUMN, Active::STATUS_ENABLED)
+            ->setOrder('sort', $banner::SORT_ORDER_ASC);
 
         return $banner->getData();
     }
