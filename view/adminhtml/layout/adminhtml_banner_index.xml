@@ -3,7 +3,7 @@
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="content">
-            <uiComponent name="banner_grid_listing"/>
+            <uiComponent name="adminhtml_banner_listing" />
         </referenceContainer>
     </body>
 </page>
