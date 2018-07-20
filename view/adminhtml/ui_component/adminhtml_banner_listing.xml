@@ -27,7 +27,9 @@
             <updateUrl path="mui/index/render"/>
         </settings>
         <aclResource>IdealCode_Banner::banner</aclResource>
-        <dataProvider name="adminhtml_banner_listing_data_source" class="IdealCode\Banner\Ui\Component\DataProvider" />
+        <dataProvider name="adminhtml_banner_listing_data_source"
+                      class="IdealCode\Banner\Ui\Component\Listing\Banner\DataProvider"
+        />
     </dataSource>
 
     <listingToolbar name="listing_top">
