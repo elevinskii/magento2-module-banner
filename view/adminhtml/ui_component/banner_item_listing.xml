@@ -35,10 +35,72 @@
     <listingToolbar name="listing_top">
         <bookmark name="bookmarks"/>
         <columnsControls name="columns_controls"/>
+        <massaction name="listing_massaction">
+            <action name="delete">
+                <settings>
+                    <confirm>
+                        <message>Are you sure you want to delete selected items?</message>
+                        <title>Delete items</title>
+                    </confirm>
+                    <url path="*/*/massDelete"/>
+                    <type>delete</type>
+                    <label translate="true">Delete</label>
+                </settings>
+            </action>
+            <action name="disable">
+                <settings>
+                    <url path="*/*/massDisable"/>
+                    <type>disable</type>
+                    <label translate="true">Disable</label>
+                </settings>
+            </action>
+            <action name="enable">
+                <settings>
+                    <url path="/*/massEnable"/>
+                    <type>enable</type>
+                    <label translate="true">Enable</label>
+                </settings>
+            </action>
+            <action name="edit">
+                <settings>
+                    <callback>
+                        <target>editSelected</target>
+                        <provider>banner_item_listing.banner_item_listing.banner_item_columns_editor</provider>
+                    </callback>
+                    <type>edit</type>
+                    <label translate="true">Edit</label>
+                </settings>
+            </action>
+        </massaction>
         <paging name="listing_paging"/>
     </listingToolbar>
 
     <columns name="banner_item_columns">
+        <settings>
+            <editorConfig>
+                <param name="clientConfig" xsi:type="array">
+                    <item name="saveUrl" xsi:type="url" path="*/*/inlineEdit"/>
+                    <item name="validateBeforeSave" xsi:type="boolean">false</item>
+                </param>
+                <param name="indexField" xsi:type="string">id</param>
+                <param name="enabled" xsi:type="boolean">true</param>
+                <param name="selectProvider" xsi:type="string">
+                    banner_item_listing.banner_item_listing.banner_item_columns.ids
+                </param>
+            </editorConfig>
+            <childDefaults>
+                <param name="fieldAction" xsi:type="array">
+                    <item name="provider" xsi:type="string">
+                        banner_item_listing.banner_item_listing.banner_item_columns_editor
+                    </item>
+                    <item name="target" xsi:type="string">startEdit</item>
+                    <item name="params" xsi:type="array">
+                        <item name="0" xsi:type="string">${ $.$data.rowIndex }</item>
+                        <item name="1" xsi:type="boolean">true</item>
+                    </item>
+                </param>
+            </childDefaults>
+        </settings>
         <selectionsColumn name="ids">
             <settings>
                 <indexField>id</indexField>
@@ -52,19 +114,45 @@
         <column name="active" component="Magento_Ui/js/grid/columns/select">
             <settings>
                 <options class="IdealCode\Banner\Model\Item\Active" />
+                <editor>
+                    <editorType>select</editorType>
+                </editor>
                 <dataType>select</dataType>
                 <label>Active</label>
             </settings>
         </column>
+        <column name="img" component="Magento_Ui/js/grid/columns/thumbnail"
+                class="IdealCode\Banner\Ui\Component\Listing\Column\Item\Image">
+            <argument name="data" xsi:type="array">
+                <item name="url" xsi:type="string">banner/item</item>
+            </argument>
+            <settings>
+                <sortable>false</sortable>
+                <altField>name</altField>
+                <hasPreview>1</hasPreview>
+                <label>Image</label>
+            </settings>
+        </column>
         <column name="link">
             <settings>
+                <editor>
+                    <editorType>text</editorType>
+                </editor>
                 <label>Link</label>
             </settings>
         </column>
         <column name="sort">
             <settings>
+                <editor>
+                    <editorType>text</editorType>
+                </editor>
                 <label>Sorting</label>
             </settings>
         </column>
+        <actionsColumn name="actions" class="IdealCode\Banner\Ui\Component\Listing\Column\Item\Action">
+            <argument name="data" xsi:type="array">
+                <item name="url" xsi:type="string">banner/item</item>
+            </argument>
+        </actionsColumn>
     </columns>
 </listing>

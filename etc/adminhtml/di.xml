@@ -9,4 +9,23 @@
             </argument>
         </arguments>
     </virtualType>
+    <virtualType name="IdealCode\Banner\Ui\Component\Listing\Column\Item\Action"
+                 type="IdealCode\Banner\Ui\Component\Listing\Column\Action">
+        <arguments>
+            <argument name="resource" xsi:type="object">
+                IdealCode\Banner\Model\ResourceModel\Item
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="IdealCode\Banner\Ui\Component\Listing\Column\Item\Image"
+                 type="IdealCode\Banner\Ui\Component\Listing\Column\Image">
+        <arguments>
+            <argument name="resource" xsi:type="object">
+                IdealCode\Banner\Model\ResourceModel\Item
+            </argument>
+            <argument name="mediaPath" xsi:type="const">
+                IdealCode\Banner\Model\Item::BASE_MEDIA_PATH
+            </argument>
+        </arguments>
+    </virtualType>
 </config>
