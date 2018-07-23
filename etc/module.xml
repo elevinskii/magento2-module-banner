@@ -4,6 +4,7 @@
     <module name="IdealCode_Banner" setup_version="0.0.1">
         <sequence>
             <module name="Magento_Backend" />
+            <module name="IdealCode_Core" />
         </sequence>
     </module>
 </config>
