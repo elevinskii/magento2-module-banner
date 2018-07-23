@@ -29,9 +29,9 @@ abstract class Action extends \IdealCode\Banner\Controller\Adminhtml\Banner
     protected $_uploaderFactory;
 
     /**
-     * @var \Magento\Framework\Filesystem
+     * @var \Magento\Framework\Filesystem\Directory\WriteInterface
      */
-    protected $_filesystem;
+    protected $_mediaDirectory;
 
     /**
      * Action constructor.
@@ -58,7 +58,9 @@ abstract class Action extends \IdealCode\Banner\Controller\Adminhtml\Banner
         $this->_filter = $filter;
         $this->_collectionFactory = $collectionFactory;
         $this->_uploaderFactory = $uploaderFactory;
-        $this->_filesystem = $filesystem;
+        $this->_mediaDirectory = $filesystem->getDirectoryWrite(
+            \Magento\Framework\App\Filesystem\DirectoryList::MEDIA
+        );
         parent::__construct($context);
     }
 
