@@ -11,7 +11,7 @@ class Action extends \Magento\Ui\Component\Listing\Columns\Column
                     $item[$this->getData('name')] = [
                         'edit' => [
                             'href' => $this->context->getUrl(
-                                'banner/item/edit',
+                                $this->getData('url').'/edit',
                                 [
                                     'id' => $item['id']
                                 ]
@@ -20,7 +20,7 @@ class Action extends \Magento\Ui\Component\Listing\Columns\Column
                         ],
                         'delete' => [
                             'href' => $this->context->getUrl(
-                                'banner/item/delete',
+                                $this->getData('url').'/delete',
                                 [
                                     'id' => $item['id']
                                 ]

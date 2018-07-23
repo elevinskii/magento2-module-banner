@@ -3,7 +3,7 @@
          xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
-            <item name="provider" xsi:type="string">banner_item_listing.banner_item_listing_data_source</item>
+            <item name="provider" xsi:type="string">banner_type_listing.banner_type_listing_data_source</item>
         </item>
     </argument>
     <settings>
@@ -11,15 +11,15 @@
             <button name="add">
                 <url path="*/*/new/" />
                 <class>primary</class>
-                <label>Add New Banner</label>
+                <label>Add New Type</label>
             </button>
         </buttons>
-        <spinner>banner_item_columns</spinner>
+        <spinner>banner_type_columns</spinner>
         <deps>
-            <dep>banner_item_listing.banner_item_listing_data_source</dep>
+            <dep>banner_type_listing.banner_type_listing_data_source</dep>
         </deps>
     </settings>
-    <dataSource name="banner_item_listing_data_source" component="Magento_Ui/js/grid/provider">
+    <dataSource name="banner_type_listing_data_source" component="Magento_Ui/js/grid/provider">
         <settings>
             <storageConfig>
                 <param name="indexField" xsi:type="string">id</param>
@@ -27,8 +27,8 @@
             <updateUrl path="mui/index/render"/>
         </settings>
         <aclResource>IdealCode_Banner::banner</aclResource>
-        <dataProvider name="banner_item_listing_data_source"
-                      class="IdealCode\Banner\Ui\Component\Listing\Banner\DataProvider" />
+        <dataProvider name="banner_type_listing_data_source"
+                      class="IdealCode\Banner\Ui\Component\Listing\Type\DataProvider" />
     </dataSource>
 
     <listingToolbar name="listing_top">
@@ -46,25 +46,11 @@
                     <label translate="true">Delete</label>
                 </settings>
             </action>
-            <action name="disable">
-                <settings>
-                    <url path="*/*/massDisable"/>
-                    <type>disable</type>
-                    <label translate="true">Disable</label>
-                </settings>
-            </action>
-            <action name="enable">
-                <settings>
-                    <url path="/*/massEnable"/>
-                    <type>enable</type>
-                    <label translate="true">Enable</label>
-                </settings>
-            </action>
             <action name="edit">
                 <settings>
                     <callback>
                         <target>editSelected</target>
-                        <provider>banner_item_listing.banner_item_listing.banner_item_columns_editor</provider>
+                        <provider>banner_type_listing.banner_type_listing.banner_type_columns_editor</provider>
                     </callback>
                     <type>edit</type>
                     <label translate="true">Edit</label>
@@ -74,7 +60,7 @@
         <paging name="listing_paging"/>
     </listingToolbar>
 
-    <columns name="banner_item_columns">
+    <columns name="banner_type_columns">
         <settings>
             <editorConfig>
                 <param name="clientConfig" xsi:type="array">
@@ -84,13 +70,13 @@
                 <param name="indexField" xsi:type="string">id</param>
                 <param name="enabled" xsi:type="boolean">true</param>
                 <param name="selectProvider" xsi:type="string">
-                    banner_item_listing.banner_item_listing.banner_item_columns.ids
+                    banner_type_listing.banner_type_listing.banner_type_columns.ids
                 </param>
             </editorConfig>
             <childDefaults>
                 <param name="fieldAction" xsi:type="array">
                     <item name="provider" xsi:type="string">
-                        banner_item_listing.banner_item_listing.banner_item_columns_editor
+                        banner_type_listing.banner_type_listing.banner_type_columns_editor
                     </item>
                     <item name="target" xsi:type="string">startEdit</item>
                     <item name="params" xsi:type="array">
@@ -107,47 +93,20 @@
         </selectionsColumn>
         <column name="id">
             <settings>
-                <label>Banner ID</label>
+                <label>Type ID</label>
             </settings>
         </column>
-        <column name="active" component="Magento_Ui/js/grid/columns/select">
-            <settings>
-                <options class="IdealCode\Banner\Model\Banner\Active" />
-                <editor>
-                    <editorType>select</editorType>
-                </editor>
-                <dataType>select</dataType>
-                <label>Active</label>
-            </settings>
-        </column>
-        <column name="img" component="Magento_Ui/js/grid/columns/thumbnail"
-                class="IdealCode\Banner\Ui\Component\Listing\Column\Image">
-            <settings>
-                <sortable>false</sortable>
-                <altField>name</altField>
-                <hasPreview>1</hasPreview>
-                <label>Image</label>
-            </settings>
-        </column>
-        <column name="link">
+        <column name="name">
             <settings>
                 <editor>
                     <editorType>text</editorType>
                 </editor>
-                <label>Link</label>
-            </settings>
-        </column>
-        <column name="sort">
-            <settings>
-                <editor>
-                    <editorType>text</editorType>
-                </editor>
-                <label>Sorting</label>
+                <label>Name</label>
             </settings>
         </column>
         <actionsColumn name="actions" class="IdealCode\Banner\Ui\Component\Listing\Column\Action">
             <argument name="data" xsi:type="array">
-                <item name="url" xsi:type="string">banner/item</item>
+                <item name="url" xsi:type="string">banner/type</item>
             </argument>
         </actionsColumn>
     </columns>

@@ -57,6 +57,22 @@ class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
 
         $installer->getConnection()->createTable($table);
 
+        $table = $installer->getConnection()->newTable(
+            $installer->getTable('ic_banner_types')
+        )->addColumn(
+            'id',
+            Table::TYPE_INTEGER,
+            null,
+            ['identity' => true, 'unsigned' => true, 'nullable' => false, 'primary' => true]
+        )->addColumn(
+            'name',
+            Table::TYPE_TEXT,
+            255,
+            ['nullable' => false]
+        );
+
+        $installer->getConnection()->createTable($table);
+
         $installer->endSetup();
     }
 }
