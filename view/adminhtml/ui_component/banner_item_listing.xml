@@ -3,7 +3,7 @@
          xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
-            <item name="provider" xsi:type="string">adminhtml_banner_listing.adminhtml_banner_listing_data_source</item>
+            <item name="provider" xsi:type="string">banner_item_listing.banner_item_listing_data_source</item>
         </item>
     </argument>
     <settings>
@@ -14,12 +14,12 @@
                 <label>Add New Banner</label>
             </button>
         </buttons>
-        <spinner>adminhtml_banner_columns</spinner>
+        <spinner>banner_item_columns</spinner>
         <deps>
-            <dep>adminhtml_banner_listing.adminhtml_banner_listing_data_source</dep>
+            <dep>banner_item_listing.banner_item_listing_data_source</dep>
         </deps>
     </settings>
-    <dataSource name="adminhtml_banner_listing_data_source" component="Magento_Ui/js/grid/provider">
+    <dataSource name="banner_item_listing_data_source" component="Magento_Ui/js/grid/provider">
         <settings>
             <storageConfig>
                 <param name="indexField" xsi:type="string">id</param>
@@ -27,8 +27,8 @@
             <updateUrl path="mui/index/render"/>
         </settings>
         <aclResource>IdealCode_Banner::banner</aclResource>
-        <dataProvider name="adminhtml_banner_listing_data_source"
-                      class="IdealCode\Banner\Ui\Component\Listing\Banner\DataProvider"
+        <dataProvider name="banner_item_listing_data_source"
+                      class="IdealCode\Banner\Ui\Component\Listing\Item\DataProvider"
         />
     </dataSource>
 
@@ -38,7 +38,7 @@
         <paging name="listing_paging"/>
     </listingToolbar>
 
-    <columns name="adminhtml_banner_columns">
+    <columns name="banner_item_columns">
         <selectionsColumn name="ids">
             <settings>
                 <indexField>id</indexField>
