@@ -6,5 +6,7 @@
              parent="Magento_Backend::content" resource="IdealCode_Banner::banner"/>
         <add id="IdealCode_Banner::item" title="Items" module="IdealCode_Banner" sortOrder="0"
              action="banner/item" parent="IdealCode_Banner::banner" resource="IdealCode_Banner::banner"/>
+        <add id="IdealCode_Banner::type" title="Types" module="IdealCode_Banner" sortOrder="10"
+             action="banner/type" parent="IdealCode_Banner::banner" resource="IdealCode_Banner::banner"/>
     </menu>
 </config>
