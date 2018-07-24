@@ -1,5 +1,5 @@
 <?php
-namespace IdealCode\Banner\Model\Banner;
+namespace IdealCode\Banner\Model\Item;
 
 class Active extends \Magento\Framework\DataObject implements \Magento\Framework\Data\OptionSourceInterface
 {

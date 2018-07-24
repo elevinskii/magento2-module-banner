@@ -11,7 +11,7 @@
             <button name="add">
                 <url path="*/*/new/" />
                 <class>primary</class>
-                <label>Add New Banner</label>
+                <label>Add New Item</label>
             </button>
         </buttons>
         <spinner>banner_item_columns</spinner>
@@ -46,12 +46,12 @@
         </selectionsColumn>
         <column name="id">
             <settings>
-                <label>Banner ID</label>
+                <label>Item ID</label>
             </settings>
         </column>
         <column name="active" component="Magento_Ui/js/grid/columns/select">
             <settings>
-                <options class="IdealCode\Banner\Model\Banner\Active" />
+                <options class="IdealCode\Banner\Model\Item\Active" />
                 <dataType>select</dataType>
                 <label>Active</label>
             </settings>

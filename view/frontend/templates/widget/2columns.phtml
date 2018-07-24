@@ -1,10 +1,10 @@
 <?php
 /**
- * @var \IdealCode\Banner\Block\Widget\BannerList $block
+ * @var \IdealCode\Banner\Block\Widget\ItemList $block
  */
 ?>
 <div>
-    <?php foreach ($block->getBanners() as $item):?>
+    <?php foreach ($block->getItems() as $item):?>
         <div class="item">
             <?php if (strlen($item['link']) > 0 ):?>
                 <a href="<?=$item['link']?>">
