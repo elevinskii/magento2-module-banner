@@ -28,4 +28,12 @@
             </argument>
         </arguments>
     </virtualType>
+    <virtualType name="IdealCode\Banner\Ui\Component\Form\Item\DataProvider"
+                 type="IdealCode\Core\Ui\Component\Form\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object">
+                IdealCode\Banner\Model\ResourceModel\Item\Collection
+            </argument>
+        </arguments>
+    </virtualType>
 </config>
